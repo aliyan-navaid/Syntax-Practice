@@ -1,6 +1,13 @@
 #include <iostream>
 using std::cout, std::endl;
 
+void print(int* x) {
+    /* Avoid if(x) for leads to nested code */
+    if(!x) { return; }
+    
+    cout << *x << endl;
+}
+
 int main() {
     /* 
         Favour References for Dereferencing NULL Pointers  
@@ -34,4 +41,7 @@ int main() {
     const int* pointerToConstInt {};
     int* const constPointer {};
     const int* const constPtrToConstInt {};
+
+    /* Pass By Address - Address Copied instead of Value */
+    print(&x);
 }
